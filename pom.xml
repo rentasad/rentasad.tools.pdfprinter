@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>rentasad</groupId>
     <artifactId>rentasad.tools.pdfprinter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>gustini.library.vs4.middleware</name>
     <licenses>
         <license>
@@ -14,7 +11,7 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    <url></url>
+    <url/>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
@@ -98,7 +95,7 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+
 
 
     </dependencies>
@@ -128,6 +125,13 @@
                             <phase>package</phase> <!-- append to the packaging phase -->
                             <goals>
                                 <goal>single</goal> <!-- goals == mojos -->
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>generate-changelog</id>
+                            <phase>prepare-package</phase> <!-- Stelle sicher, dass es beim Build-Prozess ausgeführt wird -->
+                            <goals>
+                                <goal>create</goal>
                             </goals>
                         </execution>
                     </executions>
@@ -211,6 +215,30 @@
                             <phase>clean</phase>
                             <goals>
                                 <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>4.0.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>revision</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>4.0.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>revision</goal>
                             </goals>
                         </execution>
                     </executions>
