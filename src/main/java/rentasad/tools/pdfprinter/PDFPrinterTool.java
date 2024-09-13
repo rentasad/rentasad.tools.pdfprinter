@@ -1,15 +1,9 @@
 package rentasad.tools.pdfprinter;
-
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.printing.PDFPageable;
+// STARTCLASS: rentasad.tools.pdfprinter.PDFPrinterTool
 import rentasad.tools.pdfprinter.helper.ParameterParserHelper;
 import rentasad.tools.pdfprinter.helper.PdfPrinterHelper;
 
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
 import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
-import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 

@@ -41,11 +41,13 @@ public class PdfPrinterHelper
 	 */
 	public static void printAllPdfFilesInDirectory(final String directory, final String printerName)
 	{
+		log.info("Hinterlegter Drucker: " + printerName);
 		File directoryFile = new File(directory);
 		PrintService printService = findPrintService(printerName);
 		if (printService == null)
 		{
 			printService = PrintServiceLookup.lookupDefaultPrintService();
+			log.info("Standard-Drucker gefunden: " + printService.getName());
 		}
 		File[] files = directoryFile.listFiles((dir, name) -> name.toLowerCase()
 															  .endsWith(".pdf"));
